@@ -3,13 +3,13 @@
 ```
 1.js keyword smart tip (js关键字智能提示)
 2.custom keyword smart tip (自定义关键字智能提示)
-3.抽象语法树 recast 使用npm i recast https://www.npmjs.com/package/recast
+3.抽象语法树 recast 使用npm i recast https://www.npmjs.com/package/recast （这个安装包是关键，一定要理解用法）
 ```
   
 # look
 
 
-# refer
+# refer---一定要看这篇文章
 https://blog.csdn.net/qq_40550973/article/details/94922497
 
 
