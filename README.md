@@ -1,8 +1,10 @@
 
 # Vue-Codemirror-js
-  1.js keyword smart tip (js关键字智能提示)
-  2.custom keyword smart tip (自定义关键字智能提示)
-  3.抽象语法树 recast 使用npm i recast https://www.npmjs.com/package/recast
+```
+1.js keyword smart tip (js关键字智能提示)
+2.custom keyword smart tip (自定义关键字智能提示)
+3.抽象语法树 recast 使用npm i recast https://www.npmjs.com/package/recast
+```
   
 # look
 
