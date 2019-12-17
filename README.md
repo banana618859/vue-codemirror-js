@@ -1,3 +1,17 @@
+
+# Vue-Codemirror-js
+  1.js keyword smart tip (js关键字智能提示)
+  2.custom keyword smart tip (自定义关键字智能提示)
+  3.抽象语法树 recast 使用npm i recast https://www.npmjs.com/package/recast
+  
+# look
+
+
+# refer
+https://blog.csdn.net/qq_40550973/article/details/94922497
+
+
+
 # Vue-Codemirror-Lite
 
 [CodeMirror](http://codemirror.net/) Component For Vue.js (support 1.x and 2.x).
