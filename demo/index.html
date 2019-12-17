@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion: 
+ * @Author: yizheng.yuan
+ * @Date: 2019-10-14 23:12:13
+ * @LastEditors: yizheng.yuan
+ * @LastEditTime: 2019-12-14 22:41:37
+ -->
 <!DOCTYPE html>
 <html>
 
@@ -13,8 +20,28 @@
     <h2><a href="https://github.com/cnu4/vue-codemirror-lite">View on Github</a></h2>
     <main v-cloak id="app">
       <div class="cm-container">
-        <codemirror :value="code" @change="change" :options="options"></codemirror>
+        <p style="padding:8px 0;margin:0;">JS codeEditor:</p>
+        <div style="border:1px solid #eee;">
+          <codemirror 
+            :value="code" 
+            @cursor-active="cursorFun" 
+            @change="change" 
+            :options="options">
+          </codemirror>
+        </div>
       </div>
+
+      <div class="cm-container">
+        <p style="padding:8px 0;margin:0;">CMD:</p style="padding:5px 0;">
+        <div style="border:1px solid #eee;">
+          <codemirrorcmd 
+            :value="cmdcode" 
+            @cursor-active="cursorCmdFun" 
+            @cmd-change="cmdChangeFun">
+          </codemirrorcmd>
+        </div>
+      </div>
+
       <select name="mode" v-model="mode">
         <option value="javascript">javascript</option>
         <option value="vue">vue</option>

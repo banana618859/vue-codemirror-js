@@ -3,7 +3,7 @@
  * @Author: yizheng.yuan
  * @Date: 2019-10-14 23:12:13
  * @LastEditors: yizheng.yuan
- * @LastEditTime: 2019-12-17 11:33:39
+ * @LastEditTime: 2019-12-14 22:41:13
  -->
 <template>
   <div class="vue-codemirror-wrap">
@@ -14,6 +14,11 @@
 <script>
   var CodeMirror = require('codemirror/lib/codemirror.js')
   require('codemirror/lib/codemirror.css')
+  require('codemirror/theme/3024-night.css')
+
+  // yizheng-add-cmd-2019.12.14 代码解析分词 ast抽象语法树
+var {getCmdKey} = require('./demo/js/parseCmd.js');
+  
   export default {
     props: {
       value: {
@@ -26,7 +31,8 @@
           return {
             mode: 'text/javascript',
             lineNumbers: true,
-            lineWrapping: true
+            lineWrapping: true,
+            theme: '3024-night'
           }
         }
       },
@@ -49,23 +55,32 @@
       this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
       this.editor.setValue(this.value)
 
+      this.editor.on('keyHandled', function(instance, name, event) {
+        console.log('---key function--###############',instance, name, event);
+        var code = instance.getValue();
+        var cmdArr = [];
+        [...cmdArr] = code.trim().split(' ')
+        console.log('--rel',cmdArr);
+      })
+
       this.editor.on('cursorActivity', function(e){
-        console.log('00cursorActivity');
+        console.log('#######cursorActivity');
         if (!!_this.$emit) {
-          _this.$emit('cursor-active',e)
+          // _this.$emit('cursor-active',e)
         }
       })
       
       this.editor.on('change', function(cm) {
-        console.log('change')
+        
+        console.log('---cmdChange')
         //console.log('this.editor.on-change');
         // cm.showHint()
-        if (_this.skipNextChangeEvent) {
-          _this.skipNextChangeEvent = false
-          return
-        }
+        // if (_this.skipNextChangeEvent) {
+        //   _this.skipNextChangeEvent = false
+        //   return
+        // }
         if (!!_this.$emit) {
-          // _this.$emit('change', cm.getValue())
+          // _this.$emit('cmd-change', cm.getValue())
           //_this.$emit('input', cm.getValue())
         }
       })

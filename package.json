@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/cnu4/vue-codemirror-lite",
   "dependencies": {
-    "codemirror": "^5.22.0"
+    "codemirror": "^5.22.0",
+    "recast": "^0.18.5"
   },
   "devDependencies": {
     "cross-env": "^5.1.3",
